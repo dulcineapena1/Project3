@@ -2,6 +2,7 @@
   "name": "mernproject3",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "axios": "^0.16.2",
     "moment": "^2.23.0",
