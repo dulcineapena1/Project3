@@ -57,6 +57,9 @@
     height: 100% !important;
     background-color:#efefef;
     padding: 4%;
+    border-right: 1px solid white;
+ 
+  
 }
 
 .bm-burger-button button{
@@ -129,7 +132,7 @@ li{
 
 
 }
-.rbc-toolbar button{
+.rbc-toolbar button,.bm-item.menu-itema{
     outline-style: none !important;
     box-shadow: none !important;
 }
@@ -140,4 +143,36 @@ li{
 .rbc-btn-group button + button {
     margin-left: -9px!important;;
     font-weight: bold!important;;
+}
+
+.inputlinea{
+    border: none;
+    border-bottom: 1px solid darkgrey;
+    background-color: #efefef !important;
+    outline-style: none !important;
+    box-shadow: none !important;
+}
+
+.listgroupenbuscador{
+    background-color: #efefef!important;
+    outline-style: none !important;
+    box-shadow: none !important;
+    padding-top: 8%;
+}
+
+.listgroupenbuscador:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    /* margin: 0 auto This will center the border. */
+    width: 20%; /* Change this to whatever width you want. */
+    padding-top: 1%; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid white;
+}
+
+.textodefaultbuscador{
+    text-align: center;
+    font-size: 12px;
+    color: grey;
+    font-weight: bold;
+    padding-top: 11%;
 }

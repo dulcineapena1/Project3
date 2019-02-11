@@ -215,7 +215,7 @@ class Section extends Compo {
           <span style={{color: '#03A9F4', fontSize: '23px'}}>
             <i className="fas fa-search"></i>
           </span>
-          <a className="texto-navegacion">
+          <a href="" className="texto-navegacion">
             BUSCAR
           </a>
         </li>
@@ -232,36 +232,38 @@ class Section extends Compo {
       >
         {/* ----------->BUSCADOR */}
         <div className="menu-itema">
-        <InformacionAMostrar 
-          className="labelInputModal"
-          label="BUSCADOR"
-          name="elementoABuscarEnSearch"
-          onChange={this.handleOnChangeBuscador}
-        />
-        <ul className="list-group list-group-flush">
-          {this.state.encontradoEnSearch.length ? (
-            <div>
-              {this.state.encontradoEnSearch.map(
-                encontrado => (
-                  <ListadoAgrupado
-                    key={encontrado._id}
-                    id={encontrado._id}
-                    nombre={encontrado.nombreempresa}
-                    mostrarDetalle={
-                      this.mostrarDetalleDelSeleccionadoEnSearch
-                    }
-                  />
-                )
-              )}
-            </div>
-          ) : this.state.elementoABuscarEnSearch ? (
-            <p className="labelInputModal">...Buscando</p>
-          ) : (
-            <p className="labelInputModal">
-              No hay infomación para mostrar
-            </p>
-          )}
-        </ul>
+          <InformacionAMostrar 
+            className="labelInputModal"
+            classinput="inputlinea"
+            label="Busca un proyecto"
+            name="elementoABuscarEnSearch"
+            onChange={this.handleOnChangeBuscador}
+          />
+          <ul className="list-group list-group-flush">
+            {this.state.encontradoEnSearch.length ? (
+              <div>
+                {this.state.encontradoEnSearch.map(
+                  encontrado => (
+                    <ListadoAgrupado
+                      lidesplieguelistadoagrupado="listgroupenbuscador"
+                      key={encontrado._id}
+                      id={encontrado._id}
+                      nombre={encontrado.nombreempresa}
+                      mostrarDetalle={
+                        this.mostrarDetalleDelSeleccionadoEnSearch
+                      }
+                    />
+                  )
+                )}
+              </div>
+            ) : this.state.elementoABuscarEnSearch ? (
+              <p className="textodefaultbuscador">...Buscando</p>
+            ) : (
+              <p className="textodefaultbuscador">
+                No hay infomación para mostrar
+              </p>
+            )}
+          </ul>
         </div>
      
       </Menu>
