@@ -1,5 +1,5 @@
 import axios from "axios"
-axios.defaults.baseURL= "http://localhost:5000";
+//axios.defaults.baseURL= "http://localhost:5000";
 //Este archivo es similar al ajax que tenías antes en un .js del front
 export default {
   // Gets all metodos saved in database
