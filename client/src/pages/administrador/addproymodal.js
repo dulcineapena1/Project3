@@ -92,7 +92,7 @@ class Addproyect extends Component {
         <form>
           <div className="form-row">
             <div className="form-group col-md-4">
-              <label>Clave</label>
+              <label>Numero de proyecto</label>
               <input
                 onChange={this.handleChange}
                 className="form-control"
@@ -115,7 +115,7 @@ class Addproyect extends Component {
                 onChange={this.handleChange}
                 className="form-control"
                 name="direccion"
-                placeholder="Calz. de Tlalpan 1634, Col.Ermita, Benito Juárez, C.P 03590"
+                placeholder="Calle, Col, C.P"
               />
             </div>
           </div>
@@ -128,8 +128,11 @@ class Addproyect extends Component {
                 `Seleccionado del ${from.toLocaleDateString()} al
                 ${to.toLocaleDateString()}`}{" "}
               {from && to && (
-                <button className="link" onClick={this.handleResetClick}>
-                  Reset
+                <button
+                  className="link btn btn-outline-danger"
+                  onClick={this.handleResetClick}
+                >
+                  Borrar
                 </button>
               )}
             </p>
@@ -187,10 +190,10 @@ class Addproyect extends Component {
             type="submit"
             className="btn btn-primary"
           >
-            Crear Nuevo Proyecto
+            Dar de alta proyecto
           </button>
           <Link to="/">
-            <button className="btn btn-danger">Salir</button>
+            <button className="btn btn-danger">Salir a calendario</button>
           </Link>
         </form>
       </div>

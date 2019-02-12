@@ -107,7 +107,7 @@ const tiposdeestudioSeed = [
       "NMX-AA-035-1976",
       "NMX-AA-054-1978",
       "EPA METODO 3A-2008",
-      " EPA METODO 6C-2008",
+      "EPA METODO 6C-2008",
       "EPA METODO 7E-2008",
       "EPA METODO 10-2008"
     ]
@@ -123,7 +123,7 @@ const tiposdeestudioSeed = [
       "NMX-AA-009-1993-SCFI",
       "NMX-AA-035-1976",
       "NMX-AA-054-1978",
-      " EPA METODO 3A-2008",
+      "EPA METODO 3A-2008",
       "EPA METODO 10-2008",
       "EPA METODO 6C-2008",
       "NMX-AA-114-1991",
@@ -140,9 +140,9 @@ const tiposdeestudioSeed = [
     metodos: [
       "NMX-AA-009-1993-SCFI",
       "NMX-AA-010-SCFI-2001",
-      " NMX-AA-035-1976",
+      "NMX-AA-035-1976",
       "NMX-AA-054-1978",
-      " EPA METODO 3A-2008",
+      "EPA METODO 3A-2008",
       "EPA METODO 10-2008",
       "NMX-AA-055-1979"
     ]
@@ -157,9 +157,9 @@ const tiposdeestudioSeed = [
     metodos: [
       "NMX-AA-009-1993-SCFI",
       "NMX-AA-010-SCFI-2001",
-      " NMX-AA-035-1976",
+      "NMX-AA-035-1976",
       "NMX-AA-054-1978",
-      " EPA METODO 202"
+      "EPA METODO 202"
     ]
   },
   {
@@ -171,9 +171,9 @@ const tiposdeestudioSeed = [
     metodos: [
       "NMX-AA-009-1993-SCFI",
       "NMX-AA-010-SCFI-2001",
-      " NMX-AA-035-1976",
+      "NMX-AA-035-1976",
       "NMX-AA-054-1978",
-      " EPA METODO 201 A"
+      "EPA METODO 201 A"
     ]
   },
   {
@@ -200,8 +200,8 @@ const tiposdeestudioSeed = [
       "NMX-AA-009-1993-SCFI",
       "NMX-AA-010-SCFI-2001",
       "NMX-AA-035-1976",
-      " NMX-AA-054-1978",
-      " NMX-AA-056-1980"
+      "NMX-AA-054-1978",
+      "NMX-AA-056-1980"
     ]
   },
   {
@@ -227,8 +227,8 @@ const tiposdeestudioSeed = [
       "NMX-AA-009-1993-SCFI",
       "NMX-AA-010-SCFI-2001",
       "NMX-AA-035-1976",
-      " NMX-AA-054-1978",
-      " NMX-AA-090-1986"
+      "NMX-AA-054-1978",
+      "NMX-AA-090-1986"
     ]
   },
   {
