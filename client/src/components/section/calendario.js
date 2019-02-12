@@ -3,10 +3,10 @@ import { Link } from "react-router-dom"
 import "./calendario.css"
 import API from "../../utils/API"
 import { InformacionAMostrar } from "./Input"
+import { InformacionAMostrarenProyecto } from "./Input"
 import { Card } from "./card"
 import {ListadoAgrupado} from "./listado"
 import {Nav} from "./nav"
-
 
 import Calendar from "react-big-calendar"
 import moment from "moment"
@@ -219,7 +219,20 @@ class Section extends Compo {
             BUSCAR
           </a>
         </li>
+        <li className="navegacion">
+          <span style={{color: '#03A9F4', fontSize: '23px'}}>
+            <i className="fas fa-edit"></i>
+          </span>
+          {this.props.engrane}{/* Aquí saldrá <Engrane/> de el component children */}
+        </li>
+        <li className="navegacion">
+          <span style={{color: '#03A9F4', fontSize: '23px'}}>
+            <i className="far fa-file-alt"></i>
+          </span>
+          {this.props.consulta}
+        </li>
       </ul>
+      {this.props.proyecto}
     </Nav>
     
     <div id="outer-container">
@@ -233,8 +246,8 @@ class Section extends Compo {
         {/* ----------->BUSCADOR */}
         <div className="menu-itema">
         <InformacionAMostrar 
-          className="labelInputModal"
-          label="BUSCADOR"
+          className="labelInputModal4"
+          label="Ingresa un proyecto"
           name="elementoABuscarEnSearch"
           onChange={this.handleOnChangeBuscador}
         />
@@ -299,28 +312,26 @@ class Section extends Compo {
             >
               <div className="row">
                 <div className="col-md-8 modalsectionA">
-                  <form>
-                      <div className="form-group">
-                        <label className="tituloModal">Proyecto</label>
-                      </div>
-                      <InformacionAMostrar 
-                        className="labelInputModal"
-                        label="CLAVE"
-                        name="laClave"
-                        defaultValue={this.state.proyectoSeleccionado.clave}
-                      />
-                      <InformacionAMostrar 
-                        className="labelInputModal"
-                        label="EMPRESA"
-                        name="laEmpresa"
-                        defaultValue={this.state.proyectoSeleccionado.nombreempresa}
-                      />
-                      <InformacionAMostrar 
-                        className="labelInputModal"
-                        label="DIRECCIÓN"
-                        name="laDireccion"
-                        defaultValue={this.state.proyectoSeleccionado.direccion}
-                      />
+                  <label className="tituloModal">Proyecto</label>
+                  <form className="formdelinputcomotexto">
+                    <InformacionAMostrarenProyecto
+                      className="inputcomotexto"
+                      label="CLAVE"
+                      name="laClave"
+                      texto={this.state.proyectoSeleccionado.clave}
+                    />
+                    <InformacionAMostrarenProyecto 
+                      className="inputcomotexto"
+                      label="EMPRESA"
+                      name="laEmpresa"
+                      texto={this.state.proyectoSeleccionado.nombreempresa}
+                    />
+                    <InformacionAMostrarenProyecto 
+                      className="inputcomotexto"
+                      label="DIRECCIÓN"
+                      name="laDireccion"
+                      texto={this.state.proyectoSeleccionado.direccion}
+                    />
                   </form>
                 </div>
               </div>
@@ -332,7 +343,7 @@ class Section extends Compo {
                         key={elementos.id}
                         clave={elementos.clave}
                         tipodeestudio={elementos.tipodeestudio}
-                        src={"http://www.fundacionunam.org.mx/wp-content/uploads/2015/07/residuales_portada.jpg"}
+                        // src={"http://www.fundacionunam.org.mx/wp-content/uploads/2015/07/residuales_portada.jpg"}
                         rama={elementos.rama}
                         signatario={elementos.signatario}
                         equipo={elementos.equipo}
@@ -366,15 +377,15 @@ class Section extends Compo {
                 </div>
               ) : (null) }
               <div className="row">
+                <button className="cerrarModal" onClick={this.handleCloseModal} >
+                  <span style={{color: '#03A9F4', fontSize: '23px'}}>
+                    <i className="far fa-window-close"></i>
+                  </span>
+                </button>
                 <div className="col-sm-4 botonesFooter">
-                  <a href={`${window.location.origin}/addorder/${this.state.eventoSeleccionado}`} target="_blank" rel="noopener noreferrer" className="botonEnAncla">Agregar orden</a>
-                  <button
-                    className="cerrarModal"
-                    onClick={this.handleCloseModal}
-                  >
-                    Cerrar
-                  </button>
+                  <a href={`${window.location.origin}/addorder/${this.state.eventoSeleccionado}`} target="_blank" rel="noopener noreferrer" className="botonEnAncla2">Agregar orden</a>
                 </div>
+                
               </div>
             </ReactModal>
         </div>{/* ID page wrap */}

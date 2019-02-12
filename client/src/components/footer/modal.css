@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 .listaMetodosDisponibles:hover{
-    color: black;
+    color: blue;
     cursor: pointer;
 }
 
@@ -25,6 +25,23 @@
     color: grey;
     
 }
+.button2{
+    outline-style: none !important;
+    box-shadow: none !important;
+    margin: auto;
+    color: grey;
+    display: inherit;
+    display: block;
+    height: 91px;
+    display: b;
+    color: grey;
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-bottom: 2px solid #03a9f4;
+}
 
 .saveButton4{
     margin-top: 251px;
@@ -38,36 +55,80 @@
     cursor: pointer;
     float: right;
 }
-.inicioModalcenter{
-    margin-left: 30%;
+
+.row.inicio{
+    width: 100%;
+
 }
+
+.botonGuardar{
+    width: 100%;
+}
+
+.centradoCol{
+    text-align: center;
+
+}
+
+.centradoInput{
+    margin: auto;
+}
+
+.centradoRow{
+    margin: 0;
+    text-align: center;
+    padding-top: 4%;
+}
+
 .labelInputModal2{
     font-weight: bold;
     color:grey
-
 }
+
+.labelInputModal3{
+    font-weight: bold;
+    color:white;
+    margin:auto;
+}
+
+.rowlistadometodos{
+    margin:auto;
+    text-align: center;
+    padding-top: 5%;
+}
+
 .modalsectionD{
     width: 78%;
     margin: auto;
+    text-align: center;
+    background-color: lightgrey;
+    padding: 3%;
 }
+
 .saveButton{
-    color: grey;
+    color: #03a9f4;
     background-color: white;
     border-style: solid;
+    border-color: #03a9f4;
     border-radius: 90px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    float: right;
+    display: block;
+    margin: auto;
     outline-style: none;
     box-shadow: none;
 }
+
+.saveButton:hover{
+    background-color: #03a9f4;
+    color:white;
+}
+
 .borrarMetodoAgregado{
     background-color: white;
-    /* border: none; */
     border-style: solid;
     border-radius: 77px;
-    /* height: 30px; */
     font-size: 13px;
     color: darkgrey;
     font-weight: bold;
@@ -82,6 +143,34 @@ ul{
     color:blue;
 }
 
+.formheadmodal{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.formheadmodalinput{
+    border: none;
+    border-bottom: 2px solid blue;
+    width: 85%;
+    float: right;
+    outline-style: none !important;
+    box-shadow: none !important;
+}
+
+.formheadmodalinput2{
+    background-color: lightgrey;
+    border: none;
+    border-bottom: 2px solid blue;
+    width: 85%;
+    outline-style: none !important;
+    box-shadow: none !important;
+    text-align: center;
+}
+
+.list-group.list-group-flush{
+    margin:auto;
+}
 
 .contenedorcalendario{    
     text-align: center;
@@ -92,7 +181,18 @@ ul{
     display: block;
     text-align: center;
     font-size: 26px;
-    font-weight: bold;
+    font-weight: normal;
+    font-family: 'Secular One', sans-serif;
+}
+
+.tituloModal2{
+    width: 100%;
+    color: grey;
+    display: block;
+    text-align: center;
+    font-size: 26px;
+    font-weight: normal;
+    font-family: 'Secular One', sans-serif;
 }
 
 .modalsectionA{
@@ -102,6 +202,13 @@ ul{
 .labelInputModal{
     color: grey;
     font-size: 15px;
+    font-weight: bold;
+}
+
+.labelInputModal7{
+    color: blue;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .labelInputModalB{
@@ -124,12 +231,27 @@ ul{
     border-radius: 53px;
 }
 .cerrarModal{
-    font-size: 14px;
-    background-color: grey;
-    border-color: grey;
-    border-radius: 60px;
-    margin-top: -5px;
-    margin-left: 4px;
-    border-style: unset;
-    color: white;
+    all:unset;
+    cursor: pointer;
+}
+
+.buttonMenu,.cerrarModal{
+    all:unset;
+    outline-style: none !important;
+    box-shadow: none !important;
+}
+
+.buttonMenuSubmenu{
+    all:unset;
+    position: absolute;
+    top: 98%;
+    background-color: #1a7ec9;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.contenedorEngrane{
+    float: right;
 }
