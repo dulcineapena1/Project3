@@ -22,7 +22,8 @@ class Addorden extends React.PureComponent {
     preciosubtotal: "",
     status: [],
     comentarios: "",
-    unavailableEmployees: []
+    unavailableEmployees: [],
+    methodsArray: []
   }
 
   componentDidMount = () => {
@@ -32,12 +33,10 @@ class Addorden extends React.PureComponent {
           params: { id: proyecto }
         }
       },
-      loadMethods,
-      loadSignatarios
+      loadMethods
     } = this
     this.setState({ proyecto })
     loadMethods()
-    loadSignatarios()
   }
   handleChange = event => {
     const { name, value } = event.target
@@ -54,15 +53,7 @@ class Addorden extends React.PureComponent {
       )
       .catch(err => console.log(err))
   }
-  loadSignatarios = () => {
-    APIuna.getSignatarios().then(res =>
-      this.setState({
-        signatOptions: res.data,
-        nombresignatario: "",
-        clave: ""
-      })
-    )
-  }
+
   onSelectSignatario = e => {
     const signatarioClicked = e.target.value
     const checked = e.target.checked
@@ -95,6 +86,30 @@ class Addorden extends React.PureComponent {
     )
     this.setState({ unavailableEmployees })
   }
+  handleBuscarSignatarios = async event => {
+    const { value, name } = event.target
+    try {
+      const res = await API.findOneTipoEstudio(value).then(r => r.data[0])
+      const { metodos: methodsArray } = res
+      this.setState(
+        { [name]: value, methodsArray },
+        this.BuscarSignatariosporMetodo
+      )
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  BuscarSignatariosporMetodo = async () => {
+    const methods = this.state.methodsArray
+    try {
+      const res = await API.getMetodoenSignatario(methods).then(r => r.data)
+
+      this.setState({ signatOptions: [...res] })
+    } catch (e) {
+      console.error(e.response.data.message || e.response)
+    }
+  }
+
   handleFormSubmit = async event => {
     event.preventDefault()
     const {
@@ -130,8 +145,23 @@ class Addorden extends React.PureComponent {
     const {
       onSelectSignatario,
       checkAvailability,
-      state: { unavailableEmployees }
+      state: { unavailableEmployees, signatOptions }
     } = this
+
+    const signatarios = signatOptions.map(option => {
+      const unavailable = unavailableEmployees.includes(option.clave)
+      return (
+        <FormInline key={option.clave}>
+          <Input
+            unavailable={unavailable}
+            onChange={onSelectSignatario}
+            value={option.clave}
+          />
+          <Label unavailable={unavailable}>{option.name}</Label>
+        </FormInline>
+      )
+    })
+
     return (
       <div className="container">
         <div className="jumbotron jumbotron-fluid">
@@ -168,12 +198,12 @@ class Addorden extends React.PureComponent {
           <div className="form-group col-md-12">
             <label>Tipo de Estudio</label>
             <select
-              onChange={this.handleChange}
+              onChange={this.handleBuscarSignatarios}
               className="form-control"
               name="tipodeestudio"
             >
               {this.state.tipoEstOptions.map(option => (
-                <option key={option.clave} value={option.clave}>
+                <option key={option.clave} value={option._id}>
                   {option.nombretipodeestudio}
                 </option>
               ))}
@@ -183,21 +213,7 @@ class Addorden extends React.PureComponent {
           <div className="form-row">
             <h5>Signatario</h5>
             <hr />
-            {this.state.signatOptions.map(option => {
-              const unavailable = unavailableEmployees.includes(option.clave)
-              return (
-                <FormInline key={option.clave}>
-                  <Input
-                    unavailable={unavailable}
-                    onChange={onSelectSignatario}
-                    value={option.clave}
-                  />
-                  <Label unavailable={unavailable}>
-                    {option.nombresignatario}
-                  </Label>
-                </FormInline>
-              )
-            })}
+            {signatarios}
           </div>
 
           <div>
@@ -300,10 +316,10 @@ class Addorden extends React.PureComponent {
             type="submit"
             className="btn btn-primary"
           >
-            Crear Nuevo Estudio
+            Dar de alta estudio
           </button>
           <Link to="/">
-            <button className="btn btn-danger">Salir</button>
+            <button className="btn btn-danger">Salir a Calendario</button>
           </Link>
         </form>
       </div>

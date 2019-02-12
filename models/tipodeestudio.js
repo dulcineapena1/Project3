@@ -6,14 +6,14 @@ const TipodeestudioSchema = new Schema({
   nombretipodeestudio: { type: String, required: true },
   descripcion: { type: String },
   nombrerama: { type: String }, //ESTE CAMPO SE TIENE QUE BORRAR
-  
+  metodos: { type: [String] }
   // Lo de abajo es para popular:
-  metodos: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Metodos"
-    }
-  ]
+  // metodos: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Metodos"
+  //   }
+  // ]
 })
 
 const Tipodeestudio = mongoose.model("Tipodeestudio", TipodeestudioSchema)
