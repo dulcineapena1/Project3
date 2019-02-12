@@ -13,11 +13,12 @@
     padding-right: 42px;
     padding-left: 32px;
     font-family: 'Secular One', sans-serif;
+    width: 226px;
 }
-.botonAReportes {
-  color: white;
-  font-weight: bold;
-  float: right;
+
+.saveButton5:hover{
+  background-color: darkblue;
+  transition: 0.8s;
 }
 
 h1 {

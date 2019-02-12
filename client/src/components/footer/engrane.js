@@ -324,10 +324,11 @@ class Engrane extends Component {
 
   render() {
     return (
-      <div>
-        <button className="saveButton" onClick={this.showMenu}>
-          {" "}
-          Editar{" "}
+      <div className="contenedorEngrane">
+        <button className="buttonMenu" onClick={this.showMenu}>
+          <a className="texto-navegacion">
+            EDITAR
+          </a>
         </button>
 
         {this.state.showMenu ? (
@@ -337,12 +338,9 @@ class Engrane extends Component {
               this.dropdownMenu = element
             }}
           >
-            <button className="saveButton" onClick={this.handleOpenModal}>
-              {" "}
-              Empleado{" "}
+            <button className="buttonMenuSubmenu" onClick={this.handleOpenModal}>
+              {" "}Empleado{" "}
             </button>
-            {/* <button className="boton-baseeditar" onClick={()=>props.editarbaseequipo}> Equipo </button> */}
-            {/* <Editarempleadomodal/> */}
           </div>
         ) : null}
 
@@ -356,28 +354,28 @@ class Engrane extends Component {
           shouldFocusAfterRender={true}
         >
           <div className="inicioModalcenter">
-            {this.state.hideAllButtons ? null : (
-              <div className="col-md-5">
-                <button
-                  className="saveButton4"
-                  onClick={this.empezaragregarsignatario}
-                >
-                  {" "}
-                  Agregar empleado{" "}
-                </button>
+            <div className="row inicio">
+              <div className="col-md-12 centradoCol">
+                {this.state.hideAllButtons ? null : (
+                  
+                    <button
+                      className="button2"
+                      onClick={this.empezaragregarsignatario}
+                    >
+                      {" "}<span style={{color: '#03a9f4'}}>Agregar</span> empleado{" "}
+                    </button>
+                  
+                )}
+                {this.state.hideAllButtons ? null : (
+                    <button
+                      className="button2"
+                      onClick={this.empezareditarsignatario}
+                    >
+                      {" "}<span style={{color: '#03a9f4'}}>Editar</span> empleado{" "}
+                    </button>
+                )}
               </div>
-            )}
-            {this.state.hideAllButtons ? null : (
-              <div className="col-md-5">
-                <button
-                  className="saveButton4"
-                  onClick={this.empezareditarsignatario}
-                >
-                  {" "}
-                  Editar empleado{" "}
-                </button>
-              </div>
-            )}
+            </div>
           </div>
 
           {/*--------- Agregar signatarios */}
@@ -385,11 +383,12 @@ class Engrane extends Component {
             <form>
               <div className="row">
                 <div className="col-md-10 modalsectionA">
-                  <div className="form-group">
+                  <div className="form-group formheadmodal">
                     <label className="tituloModal">
                       Agrega un nuevo empleado
                     </label>
                     <Input
+                      classnameinputmodal="formheadmodalinput"
                       className="labelInputModal"
                       label="Clave"
                       name="claveNuevoSignatario"
@@ -397,6 +396,7 @@ class Engrane extends Component {
                       onChange={this.handleOnChangeInputNuevoSignatario}
                     />
                     <Input
+                      classnameinputmodal="formheadmodalinput"
                       className="labelInputModal"
                       label="Nombre"
                       name="nombreNuevoSignatario"
@@ -404,6 +404,7 @@ class Engrane extends Component {
                       onChange={this.handleOnChangeInputNuevoSignatario}
                     />
                     <Input
+                      classnameinputmodal="formheadmodalinput"
                       className="labelInputModal"
                       label="Contraseña"
                       name="contrasenaNuevoSignatario"
@@ -411,17 +412,16 @@ class Engrane extends Component {
                       onChange={this.handleOnChangeInputNuevoSignatario}
                     />
                   </div>
-
-                  <div className="row">
+                  <br/> <br/>
+                  <div className="row rowlistadometodos">
                     <div className="col-md-6 modalsectionC">
-                      <label className="labelInputModal">
+                      <label className="labelInputModal7">
                         Métodos disponibles
                       </label>
                       <Listado>
                         {this.state.metodosdisponibles.map(
                           mapmetodosdisponibles => (
                             <li
-                              //className={`${this.state.liClass}` || "limetodos"}
                               className="listaMetodosDisponibles"
                               onClick={() =>
                                 this.handleMetodoClick(mapmetodosdisponibles)
@@ -437,7 +437,7 @@ class Engrane extends Component {
                       </Listado>
                     </div>
                     <div className="col-md-6 modalsectionC">
-                      <label className="labelInputModal">
+                      <label className="labelInputModal7">
                         Métodos seleccionados
                       </label>
 
@@ -475,8 +475,9 @@ class Engrane extends Component {
               <div className="form-group">
                 <label className="tituloModal">Editar empleados</label>
                 <div className="row">
-                  <div className="col-md-8 modalsectionD">
+                  <div className="col-md-12 modalsectionD">
                     <Input
+                      classnameinputmodal="formheadmodalinput2"
                       label="Buscar empleado por nombre"
                       className="labelInputModal2"
                       name="nombreBuscarEditarSignatario"
@@ -500,48 +501,62 @@ class Engrane extends Component {
                           )}
                         </div>
                       ) : this.state.nombreBuscarEditarSignatario ? (
-                        <p className="labelInputModal">...Buscando</p>
+                        <p className="labelInputModal3">...Buscando</p>
                       ) : (
-                        <p className="labelInputModal">
+                        <p className="labelInputModal3">
                           No hay infomación para mostrar
                         </p>
                       )}
                     </ul>
                   </div>
                 </div>
-
+                
                 {this.state.mostrarCamposDeDetalleEditar ? (
-                  <div>
-                    <InputEditable
-                      label="Clave"
-                      name="claveNuevoSignatario"
-                      value={this.props.value}
-                      onChange={this.handleOnChangeEditarInformacionSignatario}
-                      defaultValue={this.state.detalleUnSignatario.clave || ""}
-                    />
-                    <InputEditable
-                      label="Nombre"
-                      name="nombreNuevoSignatario"
-                      value={this.props.value}
-                      onChange={this.handleOnChangeEditarInformacionSignatario}
-                      defaultValue={this.state.detalleUnSignatario.nombre || ""}
-                    />
-                    <InputEditable
-                      label="Contrasena"
-                      name="contrasenaNuevoSignatario"
-                      value={this.props.value}
-                      onChange={this.handleOnChangeEditarInformacionSignatario}
-                      defaultValue={
-                        this.state.detalleUnSignatario.contrasena || ""
-                      }
-                    />
-                    <div className="row">
+                  <div className="row centradoRow">
+                    <label className="tituloModal2">
+                      -Detalles-
+                    </label>
+                    <br/><br/>
+                    <div className="col-md-9 centradoInput">
+                      <InputEditable
+                        classnameinputmodal="formheadmodalinput"
+                        className="labelInputModal"
+                        label="Clave"
+                        name="claveNuevoSignatario"
+                        value={this.props.value}
+                        onChange={this.handleOnChangeEditarInformacionSignatario}
+                        defaultValue={this.state.detalleUnSignatario.clave || ""}
+                      />
+                      <InputEditable
+                        classnameinputmodal="formheadmodalinput"
+                        className="labelInputModal"
+                        label="Nombre"
+                        name="nombreNuevoSignatario"
+                        value={this.props.value}
+                        onChange={this.handleOnChangeEditarInformacionSignatario}
+                        defaultValue={this.state.detalleUnSignatario.nombre || ""}
+                      />
+                      <InputEditable
+                        classnameinputmodal="formheadmodalinput"
+                        className="labelInputModal"
+                        label="Contraseña"
+                        name="contrasenaNuevoSignatario"
+                        value={this.props.value}
+                        onChange={this.handleOnChangeEditarInformacionSignatario}
+                        defaultValue={
+                          this.state.detalleUnSignatario.contrasena || ""
+                        }
+                      />
+                    </div>
+                    <div className="row rowlistadometodos">
                       <div className="col-md-6 modalsectionC">
+                        <label className="labelInputModal7">
+                          Métodos disponibles
+                        </label>
                         <Listado>
                           {this.state.metodosdisponibles.map(
                             mapmetodosdisponibles => (
                               <li
-                                //className={`${this.state.liClass}` || "limetodos"}
                                 onClick={() =>
                                   this.handleMetodoClickenEditar(
                                     mapmetodosdisponibles
@@ -559,6 +574,9 @@ class Engrane extends Component {
                         </Listado>
                       </div>
                       <div className="col-md-6 modalsectionC">
+                        <label className="labelInputModal7">
+                          Métodos de este empleado
+                        </label>
                         {this.state.detalleUnSignatario.metodospornombre.map(
                           (mapSusMetodos, index) => (
                             <ListadoConBotonDelete
@@ -580,7 +598,7 @@ class Engrane extends Component {
                                 onChange={this.handleOnChangeAgregarMetodoEnEditarSignatario}
                             />
                             <button onClick={this.agregarMetodoEscritoAUnSignatario}>Agregar Método</button> */}
-                    <div className="row">
+                    <div className="row botonGuardar">
                       <div className="col-sm-5 botonesFooter">
                         <BotonGuardar
                           className="saveButton"
@@ -595,9 +613,12 @@ class Engrane extends Component {
               </div>
             </form>
           ) : null}
-
+          
+          
           <button className="cerrarModal" onClick={this.handleCloseModal}>
-            Cerrar
+            <span style={{color: '#03A9F4', fontSize: '23px'}}>
+              <i className="far fa-window-close"></i>
+            </span>
           </button>
         </ReactModal>
 

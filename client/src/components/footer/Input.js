@@ -4,7 +4,7 @@ export const Input = props => {
   return (
         <div className="form-group">
             <label className={props.className}>{props.label}</label>
-            <input {...props} className="form-control" id="exampleFormControlInput1"/>
+            <input {...props} className={props.classnameinputmodal} id="exampleFormControlInput1"/>
             
         </div>
   );
@@ -16,8 +16,8 @@ export const Input = props => {
 export const InputEditable = props => {
   return (
         <div className="form-group">
-            <label>{props.label}</label>
-            <input {...props} className="form-control" id="exampleFormControlInput1"/>
+            <label className={props.className}>{props.label}</label>
+            <input {...props} className={props.classnameinputmodal} id="exampleFormControlInput1"/>
 
         </div>
   );

@@ -10,14 +10,18 @@ class VistaAdministrador extends Component {
   render() {
     return (
       <div className="contenedor">  
-        <Link to="/addproyect">
-            <button className="saveButton5">
-              +  Proyecto
-            </button>
-        </Link> 
-        <Section />
-        <Engrane />
-        <a href={`${window.location.origin}/reportes`} target="_blank" rel="noopener noreferrer" className="botonAReportes">Reportes</a>
+        <Section
+          engrane={<Engrane/>}
+          consulta={<a href={`/ordenes/consulta`} target="_blank" rel="noopener noreferrer" className="texto-navegacion">ORDENES DEL MES</a>}
+          proyecto={
+            <Link to="/addproyect">
+              <button className="saveButton5">
+                +  Proyecto
+              </button>
+            </Link> 
+          }
+        >
+        </Section>
       </div>
     )
   }
