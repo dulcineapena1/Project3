@@ -88,6 +88,8 @@ class Addorden extends React.PureComponent {
   }
   handleBuscarSignatarios = async event => {
     const { value, name } = event.target
+    console.log(value)
+    //const tipoName = this.state.tipoEstOptions.filter()
     try {
       const res = await API.findOneTipoEstudio(value).then(r => r.data[0])
       const { metodos: methodsArray } = res
