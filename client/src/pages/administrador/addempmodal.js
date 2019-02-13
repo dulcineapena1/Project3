@@ -88,8 +88,13 @@ class Addorden extends React.PureComponent {
   }
   handleBuscarSignatarios = async event => {
     const { value, name } = event.target
-    console.log(value)
-    //const tipoName = this.state.tipoEstOptions.filter()
+    console.log("this is value", value)
+    const tipoName = this.state.tipoEstOptions.filter(
+      option => option._id === value
+    )
+    console.log("this is the filteres value: ", this.state.tipoEstOptions)
+    console.log("this is the tipoNmae")
+    this.setState({ title: tipoName[0].nombretipodeestudio })
     try {
       const res = await API.findOneTipoEstudio(value).then(r => r.data[0])
       const { metodos: methodsArray } = res
@@ -119,7 +124,7 @@ class Addorden extends React.PureComponent {
     } = this
 
     const res = await API.saveOrden({
-      title: this.state.tipodeestudio,
+      title: this.state.title,
       proyecto: this.state.proyecto,
       clave: this.state.clave,
       rama: this.state.rama,
